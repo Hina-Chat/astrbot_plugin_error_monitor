@@ -1,0 +1,94 @@
+{
+  "general": {
+    "description": "監控設定",
+    "type": "object",
+    "items": {
+      "enable_monitoring": {
+        "description": "異常監控",
+        "type": "bool",
+        "default": true,
+        "hint": "關閉後，將停止所有異常監控"
+      }
+    }
+  },
+  "smtp_settings": {
+    "description": "EMail 伺服器設定",
+    "type": "object",
+    "items": {
+      "smtp_server": {
+        "description": "SMTP 伺服器位址",
+        "type": "string",
+        "default": "smtp.gmail.com",
+        "hint": "常見伺服器：Gmail: smtp.gmail.com, QQ: smtp.qq.com, 163: smtp.163.com, Outlook: smtp-mail.outlook.com"
+      },
+      "smtp_port": {
+        "description": "SMTP 伺服器通訊埠",
+        "type": "int",
+        "default": 587,
+        "hint": "常用通訊埠：587 (TLS), 465 (SSL), 25 (無加密)"
+      },
+      "smtp_username": {
+        "description": "SMTP 登入使用者名稱",
+        "type": "string",
+        "default": "",
+        "hint": "用於登入 SMTP 伺服器的帳戶",
+        "obvious_hint": true
+      },
+      "smtp_password": {
+        "description": "SMTP 登錄密碼或 API 金鑰",
+        "type": "string",
+        "default": "",
+        "hint": "對應 SMTP 登入帳戶的密碼或專用 API 金鑰",
+        "obvious_hint": true
+      },
+      "sender_address": {
+        "description": "發件人郵箱 (需在郵件服務商驗證)",
+        "type": "string",
+        "default": "",
+        "hint": "發件人郵箱，例如 astrbot@hello.world.art",
+        "obvious_hint": true
+      },
+      "enable_ssl": {
+        "description": "啟用 SSL/TLS 加密",
+        "type": "bool",
+        "default": true,
+        "hint": "大多數現代郵件伺服器都需要啟用此選項"
+      }
+    }
+  },
+  "notification_filtering": {
+    "description": "通知與過濾",
+    "type": "object",
+    "items": {
+      "recipient_emails": {
+        "description": "接收異常通知的 EMail 清單",
+        "type": "list",
+        "default": [],
+        "hint": "可以新增多個 EMail 來接收異常通知"
+      }
+    }
+  },
+  "rate_limit_batching": {
+    "description": "頻率與批處理",
+    "type": "object",
+    "items": {
+      "max_emails_per_hour": {
+        "description": "每小時最大郵件寄送數量",
+        "type": "int",
+        "default": 10,
+        "hint": "防止郵件轟炸，設定每小時最多寄送的郵件數量"
+      },
+      "enable_batching": {
+        "description": "批處理模式",
+        "type": "bool",
+        "default": true,
+        "hint": "合併發送同一時間窗口內的錯誤"
+      },
+      "batch_window_seconds": {
+        "description": "時間窗口（秒）",
+        "type": "int",
+        "default": 60
+      }
+    }
+  }
+}

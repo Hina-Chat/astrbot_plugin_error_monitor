@@ -1,0 +1,5 @@
+name: Error Monitor
+description: 捕获 Immersive Error 抛出的异常，并提供 SMTP 邮件通知进行报告。
+version: 1.0.0
+author: Magstic, Gemini 2.5 Pro
+repo: https://github.com/Hina-Chat/astrbot_plugin_error_monitor
